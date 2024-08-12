@@ -1,8 +1,11 @@
-.container{
-    display: flex;
-    flex-direction: column;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+}
 
 .workspace {
-  margin : 50px
+  margin: 50px;
+}
+.OutletContainer {
+  padding: 10px;
 }

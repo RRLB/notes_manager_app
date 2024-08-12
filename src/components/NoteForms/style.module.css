@@ -1,0 +1,29 @@
+﻿.container {
+  padding: 50px;
+  background-color: aliceblue;
+  border-radius: 22px;
+}
+.edit {
+  cursor: pointer;
+}
+
+.trash {
+  cursor: pointer;
+}
+.submit_button {
+  text-align: right;
+}
+h2 {
+  margin-bottom: 30px;
+}
+.titleInput {
+  margin-bottom: 30px;
+  max-width: 300px;
+}
+.contentInput {
+  margin-bottom: 30px;
+  max-width: 300px;
+}
+.submitButton {
+  /* text-align: right; */
+}

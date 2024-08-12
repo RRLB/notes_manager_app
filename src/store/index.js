@@ -1,14 +1,8 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import noteReducer from './note-slice'
-import thunk from 'redux-thunk';
-
-const rootReducer = combineReducers({
-    noteSlice: noteReducer
-})
+﻿import { configureStore } from "@reduxjs/toolkit";
+import { noteReducer } from "./note/note-slice";
 
 export const store = configureStore({
-    reducer: rootReducer,
-    devTools: process.env.NODE_ENV !== 'production',
-    middleware: [thunk]
-})
-
+  reducer: {
+    NOTE: noteReducer,
+  },
+});
