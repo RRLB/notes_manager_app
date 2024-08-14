@@ -1,0 +1,32 @@
+﻿.icon {
+  position: absolute;
+  margin-left: 25px;
+  margin-top: 15px;
+  color: #b8b8b8;
+}
+.input {
+  border-radius: 30px;
+  height: 50px;
+  padding-left: 70px;
+  width: 100%;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  transition: box-shadow 0.2s ease-in-out;
+}
+.isHovered {
+  border-radius: 30px;
+  height: 50px;
+  padding-left: 70px;
+  width: 100%;
+  border-color: transparent;
+  box-shadow: 0px 4px 15px rgba(0, 0, 255, 0.8);
+
+  transition: box-shadow 0.2s ease-in-out;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 255, 0.8);
+
+  transition: box-shadow 0.2s ease-in-out;
+}

@@ -8,7 +8,9 @@ export function ButtonSubmit({ children, onClick, isDisabled }) {
         disabled={isDisabled}
         onClick={onClick}
         type="button"
-        className={`btn btn-secondary ${s.button}`}
+        className={`btn btn-secondary ${s.button} ${
+          isDisabled ? s.disbledButton : ""
+        }`}
       >
         {children}
       </button>

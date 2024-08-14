@@ -14,11 +14,21 @@ const VALIDATORS = {
   },
 };
 
-export function NoteForm({ title, onClickEdit, onClickTrash, onSubmit }) {
-  const [formValues, setFormValues] = useState({ title: "", content: "" });
+export function NoteForm({
+  isEditable = true,
+  note,
+  title,
+  onClickEdit,
+  onClickTrash,
+  onSubmit,
+}) {
+  const [formValues, setFormValues] = useState({
+    title: note?.title || "",
+    content: note?.content || "",
+  });
   const [formErrors, setFormErrors] = useState({
-    title: true,
-    content: true,
+    title: note?.title ? undefined : "", //can enter error message which will appear right from the start
+    content: note?.content ? undefined : "",
   });
 
   function updateFormValuese(e) {
@@ -39,13 +49,17 @@ export function NoteForm({ title, onClickEdit, onClickTrash, onSubmit }) {
   }
 
   function hasError() {
-    for (const fieldName in formErrors) {
-      if (formErrors[fieldName]) {
-        return true;
-      }
-    }
-    return false;
-    // return Object.values(formErrors).some((error) => error !== undefined);
+    // for (const fieldName in formErrors) {
+    //   if (formErrors[fieldName]) {
+    //     return true;
+    //   }
+    // }
+    // return false;
+    //ES6
+    //OBJECT.VALUES({a:"zaez", b:"zert"}) = will extract values and place them into an array
+    //OBJECT.VALUES({a:"zaez", b:"zert"}).some(value) = undefined => some will match if at least one value matches to the param in some and if yes it gets out and says true
+    //if value = undefined and some() finds it in object.value, it will return true
+    return Object.values(formErrors).some((error) => error !== undefined);
   }
 
   const actionIcons = (
@@ -75,6 +89,7 @@ export function NoteForm({ title, onClickEdit, onClickTrash, onSubmit }) {
         type="text"
         className="form-control"
         name="title"
+        value={formValues.title}
       />
       <FieldError msg={formErrors.title} />
     </div>
@@ -89,6 +104,7 @@ export function NoteForm({ title, onClickEdit, onClickTrash, onSubmit }) {
         className="form-control"
         name="content"
         row="5"
+        value={formValues.content}
       />
       <FieldError msg={formErrors.content} />
     </div>
@@ -113,8 +129,10 @@ export function NoteForm({ title, onClickEdit, onClickTrash, onSubmit }) {
         </div>
         {actionIcons}
       </div>
-      <div className={s.titleInput}> {titleInput}</div>
-      <div className={s.contentInput}>{contentInput}</div>
+      <div className={s.titleInput}> {isEditable && titleInput}</div>
+      <div className={s.contentInput}>
+        {isEditable ? contentInput : <pre>{note.content}</pre>}
+      </div>
       {onSubmit && submitButton}
     </form>
   );

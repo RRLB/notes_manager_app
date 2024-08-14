@@ -22,8 +22,21 @@ h2 {
 }
 .contentInput {
   margin-bottom: 30px;
-  max-width: 300px;
+  /* max-width: 300px; */
 }
 .submitButton {
   /* text-align: right; */
+}
+
+@media (min-width: 1024px) {
+  .contentInput {
+    max-width: 80% !important;
+  }
+}
+pre {
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer */
 }
